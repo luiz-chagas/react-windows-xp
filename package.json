@@ -2,9 +2,15 @@
   "name": "react-windows-xp",
   "version": "0.1.0",
   "description": "WindowsXP-like react components",
-  "main": "index.js",
+  "main": "build/index.js",
+  "files": [
+    "build"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepublishOnly": "npm run build",
+    "build": "rollup -c",
+    "storybook": "start-storybook -p 6006",
+    "storybook:export": "build-storybook"
   },
   "repository": {
     "type": "git",
@@ -15,5 +21,30 @@
   "bugs": {
     "url": "https://github.com/luizjr92/react-windows-xp/issues"
   },
-  "homepage": "https://github.com/luizjr92/react-windows-xp#readme"
+  "homepage": "https://github.com/luizjr92/react-windows-xp#readme",
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@rollup/plugin-commonjs": "^16.0.0",
+    "@rollup/plugin-node-resolve": "^10.0.0",
+    "@storybook/addon-essentials": "^6.0.28",
+    "@storybook/react": "^6.0.28",
+    "@types/react": "^16.9.55",
+    "babel-loader": "^8.1.0",
+    "babel-preset-react-app": "^10.0.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "rollup": "^2.32.1",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^3.1.8",
+    "rollup-plugin-typescript2": "^0.28.0",
+    "sass-loader": "^10.0.4",
+    "typescript": "^4.0.5"
+  },
+  "dependencies": {
+    "xp.css": "^0.2.3"
+  }
 }
