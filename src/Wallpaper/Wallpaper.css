@@ -1,0 +1,9 @@
+.wallpaper {
+  overflow: hidden;
+  background: url(https://i.imgur.com/Zk6TR5k.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+
+.wallpaper *:not(input):not(textarea) {
+  user-select: none;
+}
