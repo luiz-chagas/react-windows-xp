@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from "react";
+import Draggable from "react-draggable";
 
 export interface WindowProps {
   title: string;
@@ -23,20 +24,24 @@ export const Window: FunctionComponent<WindowProps> = ({
   onMinimize,
 }) => {
   return (
-    <div className="window" style={{ width: width }}>
-      <div className="title-bar">
-        <div className="title-bar-text">{title}</div>
-        <div className="title-bar-controls">
-          {!hideMinimize && (
-            <button aria-label="Minimize" onClick={onMinimize}></button>
-          )}
-          {!hideMaximize && (
-            <button aria-label="Maximize" onClick={onMaximize}></button>
-          )}
-          {!hideClose && <button aria-label="Close" onClick={onClose}></button>}
+    <Draggable>
+      <div className="window" style={{ width: width }}>
+        <div className="title-bar">
+          <div className="title-bar-text">{title}</div>
+          <div className="title-bar-controls">
+            {!hideMinimize && (
+              <button aria-label="Minimize" onClick={onMinimize}></button>
+            )}
+            {!hideMaximize && (
+              <button aria-label="Maximize" onClick={onMaximize}></button>
+            )}
+            {!hideClose && (
+              <button aria-label="Close" onClick={onClose}></button>
+            )}
+          </div>
         </div>
+        <div className="window-body">{children}</div>
       </div>
-      <div className="window-body">{children}</div>
-    </div>
+    </Draggable>
   );
 };
