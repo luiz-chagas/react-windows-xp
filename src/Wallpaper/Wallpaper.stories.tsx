@@ -11,5 +11,5 @@ const Template: Story<WallpaperProps> = (args) => <Wallpaper {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  fullScreen: false,
+  fullScreen: true,
 };
