@@ -13,66 +13,29 @@ export interface TypographyProps {
     | "h6"
     | "terminal";
   alignment?: "left" | "center" | "right";
+  pixelated?: boolean;
 }
 
 export const Typography: FunctionComponent<TypographyProps> = ({
   variant,
   children,
-  alignment,
+  alignment = "left",
+  pixelated,
 }) => {
-  const className = "winxp-font";
-  const textAlign = alignment ?? "left";
-
-  switch (variant) {
-    case "span":
-      return (
-        <span className={className} style={{ textAlign }}>
-          {children}
-        </span>
-      );
-    case "paragraph":
-      return (
-        <p className={className} style={{ textAlign }}>
-          {children}
-        </p>
-      );
-    case "h1":
-      return (
-        <h1 className={className} style={{ textAlign }}>
-          {children}
-        </h1>
-      );
-    case "h2":
-      return (
-        <h2 className={className} style={{ textAlign }}>
-          {children}
-        </h2>
-      );
-    case "h3":
-      return (
-        <h3 className={className} style={{ textAlign }}>
-          {children}
-        </h3>
-      );
-    case "h4":
-      return (
-        <h4 className={className} style={{ textAlign }}>
-          {children}
-        </h4>
-      );
-    case "h5":
-      return (
-        <h5 className={className} style={{ textAlign }}>
-          {children}
-        </h5>
-      );
-    case "h6":
-      return (
-        <h6 className={className} style={{ textAlign }}>
-          {children}
-        </h6>
-      );
-    case "terminal":
-      return <pre>{children}</pre>;
+  if (variant === "terminal") {
+    return <pre>{children}</pre>;
   }
+
+  const className = pixelated ? "winxp-font pixelated" : "winxp-font";
+
+  const Tag =
+    {
+      paragraph: "p",
+    }[variant] || variant;
+
+  return (
+    <Tag className={className} style={{ textAlign: alignment }}>
+      {children}
+    </Tag>
+  );
 };
