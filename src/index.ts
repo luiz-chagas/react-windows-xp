@@ -1,4 +1,4 @@
-import "lib/XP.css";
+import "xp.css/dist/XP.css";
 
 export * from "./Window";
 export * from "./Typography";
