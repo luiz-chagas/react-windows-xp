@@ -1,5 +1,11 @@
 import "xp.css/dist/XP.css";
 
-export * from "./Window";
+export * from "./Button";
+export * from "./Checkbox";
+export * from "./Dropdown";
+export * from "./RadioButton";
+export * from "./Silder";
+export * from "./TextBox";
 export * from "./Typography";
 export * from "./Wallpaper";
+export * from "./Window";
