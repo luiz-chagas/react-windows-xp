@@ -1,34 +1,34 @@
 import React, { FunctionComponent } from "react";
 
-export interface RadioButtonProps {
+export interface RadioButtonProps
+  extends Omit<
+    React.DetailedHTMLProps<
+      React.InputHTMLAttributes<HTMLInputElement>,
+      HTMLInputElement
+    >,
+    "type" | "onClick"
+  > {
   group: string;
   id: string;
   label: string;
   onClick?: (selected: string) => void;
-  disabled?: boolean;
-  checked?: boolean;
-  defaultChecked?: boolean;
 }
 
 export const RadioButton: FunctionComponent<RadioButtonProps> = ({
   group,
   id,
-  disabled,
   onClick,
   label,
-  checked,
-  defaultChecked,
+  ...rest
 }) => (
   <div className="field-row">
     <input
-      disabled={disabled}
+      {...rest}
       onClick={() => onClick(id)}
       id={id}
       type="radio"
       name={group}
       value={label}
-      checked={checked}
-      defaultChecked={defaultChecked}
     />
     <label htmlFor={id}>{label}</label>
   </div>

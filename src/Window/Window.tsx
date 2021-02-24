@@ -1,8 +1,11 @@
 import React, { FunctionComponent } from "react";
 
-export interface WindowProps {
+export interface WindowProps
+  extends React.DetailedHTMLProps<
+    React.HTMLAttributes<HTMLDivElement>,
+    HTMLDivElement
+  > {
   title: string;
-  width?: string;
   showClose?: boolean;
   showMaximize?: boolean;
   showMinimize?: boolean;
@@ -15,7 +18,6 @@ export interface WindowProps {
 
 export const Window: FunctionComponent<WindowProps> = ({
   title,
-  width,
   showClose,
   showMaximize,
   showMinimize,
@@ -25,8 +27,9 @@ export const Window: FunctionComponent<WindowProps> = ({
   onMinimize,
   onHelp,
   children,
+  ...rest
 }) => (
-  <div className="window" style={{ width: width ?? "auto" }}>
+  <div {...rest} className="window">
     <div className="title-bar">
       <div className="title-bar-text">{title}</div>
       <div className="title-bar-controls">

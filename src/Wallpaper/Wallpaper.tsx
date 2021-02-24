@@ -1,13 +1,18 @@
 import React, { FunctionComponent } from "react";
 import "./Wallpaper.css";
 
-export interface WallpaperProps {
+export interface WallpaperProps
+  extends React.DetailedHTMLProps<
+    React.HTMLAttributes<HTMLDivElement>,
+    HTMLDivElement
+  > {
   fullScreen?: boolean;
 }
 
 export const Wallpaper: FunctionComponent<WallpaperProps> = ({
   children,
   fullScreen,
+  ...rest
 }) => {
   const fullScreenStyles: React.CSSProperties = fullScreen
     ? {
@@ -20,7 +25,11 @@ export const Wallpaper: FunctionComponent<WallpaperProps> = ({
     : {};
 
   return (
-    <div className="wallpaper" style={fullScreenStyles}>
+    <div
+      {...rest}
+      className={`wallpaper ` + rest.className}
+      style={fullScreenStyles}
+    >
       {children}
     </div>
   );

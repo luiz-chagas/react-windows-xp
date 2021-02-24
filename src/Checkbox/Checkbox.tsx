@@ -1,31 +1,30 @@
 import React, { FunctionComponent } from "react";
 
-export interface CheckboxProps {
+export interface CheckboxProps
+  extends Omit<
+    React.DetailedHTMLProps<
+      React.InputHTMLAttributes<HTMLInputElement>,
+      HTMLInputElement
+    >,
+    "onChange"
+  > {
   id: string;
-  label: string;
   onChange?: (active: boolean) => void;
-  defaultChecked?: boolean;
-  disabled?: boolean;
-  checked?: boolean;
 }
 
 export const Checkbox: FunctionComponent<CheckboxProps> = ({
   id,
-  label,
-  defaultChecked,
   onChange,
-  disabled,
-  checked,
+  children,
+  ...rest
 }) => (
   <div className="field-row">
     <input
+      {...rest}
       onChange={(evt) => onChange(evt.target.checked)}
-      defaultChecked={defaultChecked}
-      disabled={disabled}
       type="checkbox"
       id={id}
-      checked={checked}
     />
-    <label htmlFor={id}>{label}</label>
+    <label htmlFor={id}>{children}</label>
   </div>
 );

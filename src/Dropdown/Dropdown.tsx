@@ -1,6 +1,13 @@
 import React, { FunctionComponent } from "react";
 
-export interface DropdownProps {
+export interface DropdownProps
+  extends Omit<
+    React.DetailedHTMLProps<
+      React.SelectHTMLAttributes<HTMLSelectElement>,
+      HTMLSelectElement
+    >,
+    "onChange"
+  > {
   onChange: (value: string) => void;
   value?: string;
   children:
@@ -8,29 +15,38 @@ export interface DropdownProps {
     | React.ReactElement<DropDownOptionProps>[];
 }
 
-const DropdownSelect: FunctionComponent<DropdownProps> = ({
+export const Dropdown: FunctionComponent<DropdownProps> = ({
   children,
   onChange,
   value,
+  ...rest
 }) => (
-  <select value={value} onChange={(evt) => onChange(evt.target.value)}>
+  <select
+    {...rest}
+    value={value}
+    onChange={(evt) => onChange(evt.target.value)}
+  >
     {children}
   </select>
 );
 
-export interface DropDownOptionProps {
+export interface DropDownOptionProps
+  extends Omit<
+    React.DetailedHTMLProps<
+      React.OptionHTMLAttributes<HTMLOptionElement>,
+      HTMLOptionElement
+    >,
+    "value"
+  > {
   id: string;
-  defaultSelected?: boolean;
 }
 
-const Option: FunctionComponent<DropDownOptionProps> = ({
+export const DropdownOption: FunctionComponent<DropDownOptionProps> = ({
   id,
-  defaultSelected,
   children,
+  ...rest
 }) => (
-  <option selected={defaultSelected} value={id} id={id}>
+  <option {...rest} value={id} id={id}>
     {children}
   </option>
 );
-
-export const Dropdown = Object.assign(DropdownSelect, { Option });

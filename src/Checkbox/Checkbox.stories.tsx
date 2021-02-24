@@ -8,8 +8,8 @@ export default {
 } as Meta;
 
 export const Default = (args: CheckboxProps) => <Checkbox {...args} />;
+
 Default.args = {
-  label: "This is a checkbox",
+  children: "This is a checkbox",
   id: "checkbox-1",
-  defaultChecked: true,
 };

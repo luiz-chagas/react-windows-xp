@@ -1,6 +1,24 @@
 import React, { FunctionComponent } from "react";
 import "./Typography.css";
 
+type TextProps =
+  | React.DetailedHTMLProps<
+      React.HTMLAttributes<HTMLHeadingElement>,
+      HTMLHeadingElement
+    >
+  | React.DetailedHTMLProps<
+      React.HTMLAttributes<HTMLParagraphElement>,
+      HTMLParagraphElement
+    >
+  | React.DetailedHTMLProps<
+      React.HTMLAttributes<HTMLPreElement>,
+      HTMLPreElement
+    >
+  | React.DetailedHTMLProps<
+      React.HTMLAttributes<HTMLSpanElement>,
+      HTMLSpanElement
+    >;
+
 export interface TypographyProps {
   variant:
     | "paragraph"
@@ -12,15 +30,14 @@ export interface TypographyProps {
     | "h5"
     | "h6"
     | "terminal";
-  alignment?: "left" | "center" | "right";
   pixelated?: boolean;
 }
 
-export const Typography: FunctionComponent<TypographyProps> = ({
+export const Typography: FunctionComponent<TypographyProps & TextProps> = ({
   variant,
   children,
-  alignment = "left",
   pixelated,
+  ...rest
 }) => {
   if (variant === "terminal") {
     return <pre>{children}</pre>;
@@ -34,7 +51,7 @@ export const Typography: FunctionComponent<TypographyProps> = ({
     }[variant] || variant;
 
   return (
-    <Tag className={className} style={{ textAlign: alignment }}>
+    <Tag className={className} {...rest}>
       {children}
     </Tag>
   );
