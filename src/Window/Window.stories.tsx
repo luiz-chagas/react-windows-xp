@@ -12,6 +12,5 @@ const Template: Story<WindowProps> = (args) => <Window {...args} />;
 export const Default = Template.bind({});
 Default.args = {
   title: "Default Window",
-  width: "600px",
   children: <p>Any JSX content in here!</p>,
 };
