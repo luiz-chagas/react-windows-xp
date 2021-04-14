@@ -4,7 +4,7 @@ export * from "./Button";
 export * from "./Checkbox";
 export * from "./Dropdown";
 export * from "./RadioButton";
-export * from "./Silder";
+export * from "./Slider";
 export * from "./TextBox";
 export * from "./Typography";
 export * from "./Wallpaper";
