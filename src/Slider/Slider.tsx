@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from "react";
-import { debounce } from "../utils/debounce";
 
 export interface SliderProps
   extends Omit<
@@ -25,20 +24,16 @@ export const Slider: FunctionComponent<SliderProps> = ({
   label,
   boxIndicator,
   ...rest
-}) => {
-  const debouncedHandler = debounce(onChange, 100);
-
-  return (
-    <div className="field-row">
-      <label htmlFor={id}>{label}</label>
-      <div className={vertical ? "is-vertical" : ""}>
-        <input
-          {...rest}
-          className={boxIndicator ? "has-box-indicator" : ""}
-          type="range"
-          onChange={(evt) => debouncedHandler(Number(evt.target.value))}
-        />
-      </div>
+}) => (
+  <div className="field-row">
+    <label htmlFor={id}>{label}</label>
+    <div className={vertical ? "is-vertical" : ""}>
+      <input
+        {...rest}
+        className={boxIndicator ? "has-box-indicator" : ""}
+        type="range"
+        onChange={(evt) => onChange(Number(evt.target.value))}
+      />
     </div>
-  );
-};
+  </div>
+);
