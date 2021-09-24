@@ -9,3 +9,4 @@ export * from "./TextBox";
 export * from "./Typography";
 export * from "./Wallpaper";
 export * from "./Window";
+export * from "./Error";

@@ -1,6 +1,6 @@
 {
   "name": "react-windows-xp",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "WindowsXP-like react components",
   "main": "build/index.js",
   "files": [
@@ -15,14 +15,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/luizjr92/react-windows-xp.git"
+    "url": "git+https://github.com/luiz-chagas/react-windows-xp.git"
   },
   "author": "Luiz Chagas <luiz@luizchagas.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/luizjr92/react-windows-xp/issues"
+    "url": "https://github.com/luiz-chagas/react-windows-xp/issues"
   },
-  "homepage": "https://github.com/luizjr92/react-windows-xp#readme",
+  "homepage": "https://github.com/luiz-chagas/react-windows-xp#readme",
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
@@ -30,6 +30,7 @@
   "devDependencies": {
     "@babel/core": "^7.14.6",
     "@rollup/plugin-commonjs": "^16.0.0",
+    "@rollup/plugin-image": "^2.1.1",
     "@rollup/plugin-node-resolve": "^10.0.0",
     "@storybook/addon-actions": "^6.3.1",
     "@storybook/addon-essentials": "^6.3.1",
