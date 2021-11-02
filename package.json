@@ -1,6 +1,6 @@
 {
   "name": "react-windows-xp",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "WindowsXP-like react components",
   "main": "build/index.js",
   "files": [

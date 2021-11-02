@@ -16,7 +16,7 @@ import { ... } from 'react-windows-xp';
 
 ## Examples
 
-Check out the [storybook](https://luizjr92.github.io/react-windows-xp) page
+Check out the [storybook](https://luiz-chagas.github.io/react-windows-xp) page
 
 ## Influences
 
@@ -34,4 +34,4 @@ We welcome any comments, feedback, patches, new components and ideas to help us 
 
 ## License
 
-[MIT](https://github.com/luizjr92/react-windows-xp/blob/main/LICENSE)
+[MIT](https://github.com/luiz-chagas/react-windows-xp/blob/main/LICENSE)
